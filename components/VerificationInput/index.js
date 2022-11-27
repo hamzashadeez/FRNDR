@@ -45,7 +45,7 @@ const animateCell = ({ hasValue, index, isFocused }) => {
   ]).start();
 };
 
-const AnimatedExample = () => {
+const AnimatedExample = ({ navigation }) => {
   const [value, setValue] = useState("");
   const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
@@ -132,7 +132,11 @@ const AnimatedExample = () => {
         Resend Code (0:30s)
       </Text>
       <View style={{ marginTop: hp("10%") }}>
-        <BigButton text="Verify" type="normal" />
+        <BigButton
+          text="Verify"
+          type="normal"
+          onClick={() => navigation.navigate("interest")}
+        />
       </View>
     </View>
   );

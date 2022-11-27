@@ -21,11 +21,12 @@ const List = ({ text1, text2 }) => {
   );
 };
 
-const Settings = () => {
+const Settings = ({ navigation }) => {
   return (
     <View style={{ flex: 1 }}>
       <View style={styles.header}>
         <TouchableOpacity
+          onPress={() => navigation.goBack()}
           style={{
             flexDirection: "row",
             alignItems: "center",
@@ -88,8 +89,37 @@ const Settings = () => {
         </View>
         <List text1="Distance" text2="50km" />
         {/* meter */}
-        <View>
-          <Slider
+        <View
+          style={{
+            position: "relative",
+            height: 6,
+            marginTop: 20,
+            backgroundColor: "lightgray",
+          }}
+        >
+          <View
+            style={{
+              position: "absolute",
+              left: 0,
+              width: "60%",
+              height: 6,
+              backgroundColor: COLORS.primary,
+              flexDirection: "row",
+              justifyContent: "flex-end",
+              alignItems: "center",
+            }}
+          >
+            <View
+              style={{
+                height: 34,
+                width: 34,
+                borderRadius: 17,
+                backgroundColor: COLORS.primary,
+              }}
+            />
+          </View>
+        </View>
+        {/* <Slider
             thumbTintColor={COLORS.primary}
             style={{ width: "100%", height: 40 }}
             minimumValue={30}
@@ -97,9 +127,47 @@ const Settings = () => {
             maximumValue={100}
             minimumTrackTintColor={COLORS.primary}
             maximumTrackTintColor="#000000"
-          />
-        </View>
+          /> */}
         {/* end meter */}
+        <List text1="Age Range" text2="2-6" />
+        <View
+          style={{
+            position: "relative",
+            height: 6,
+            marginTop: 20,
+            backgroundColor: "lightgray",
+          }}
+        >
+          <View
+            style={{
+              position: "absolute",
+              left: "15%",
+              width: "65%",
+              height: 6,
+              backgroundColor: COLORS.primary,
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <View
+              style={{
+                height: 34,
+                width: 34,
+                borderRadius: 17,
+                backgroundColor: COLORS.primary,
+              }}
+            />
+            <View
+              style={{
+                height: 34,
+                width: 34,
+                borderRadius: 17,
+                backgroundColor: COLORS.primary,
+              }}
+            />
+          </View>
+        </View>
       </View>
     </View>
   );

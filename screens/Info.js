@@ -7,9 +7,10 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { COLORS, hp, Styles, wp } from "../theme";
 import { AntDesign, Entypo } from "@expo/vector-icons";
+import { SliderBox } from "react-native-image-slider-box";
 
 const Dot = ({ active }) => {
   return (
@@ -42,7 +43,13 @@ const Icon = ({ size, color, icon }) => {
   );
 };
 
-const Info = () => {
+const Info = ({ navigation }) => {
+  const [images, _] = useState([
+    require("../assets/lady2.png"),
+    require("../assets/lady22.jpg"),
+    require("../assets/image33.jpg"),
+  ]);
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView
@@ -50,10 +57,22 @@ const Info = () => {
         style={{ flex: 1, backgroundColor: "white" }}
       >
         <ImageBackground
-          source={require("../assets/lady2.png")}
+          // source={require("../assets/lady2.png")}
           style={{ height: hp("65%"), position: "relative" }}
         >
+          <SliderBox
+            images={images}
+            dotColor={COLORS.primary}
+            sliderBoxHeight={hp("65%")}
+            dotStyle={{
+              width: 7,
+              height: 7,
+              borderRadius: 3.5,
+              backgroundColor: "white",
+            }}
+          />
           <TouchableOpacity
+            onPress={() => navigation.goBack()}
             style={{
               backgroundColor: "#FFFFFF91",
               width: 30,
@@ -81,7 +100,7 @@ const Info = () => {
             }}
           >
             <View style={{ width: 58 }} />
-            <View
+            {/* <View
               style={{
                 alignItems: "center",
                 flexDirection: "row",
@@ -94,7 +113,7 @@ const Info = () => {
               <Dot active={false} />
               <Dot active={false} />
               <Dot active={false} />
-            </View>
+            </View> */}
             <TouchableOpacity
               style={{
                 backgroundColor: "#FFFFFFCC",

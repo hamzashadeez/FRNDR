@@ -1,4 +1,5 @@
 import {
+  Alert,
   Image,
   ScrollView,
   StyleSheet,
@@ -6,7 +7,8 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React from "react";
+import BigButton from "../components/BigButton";
+import React, { useCallback, useMemo, useRef } from "react";
 import { COLORS, Styles, wp } from "../theme";
 import { EvilIcons } from "@expo/vector-icons";
 import { Feather, AntDesign, Ionicons, FontAwesome5 } from "@expo/vector-icons";
@@ -15,10 +17,15 @@ import Two from "../assets/Two.svg";
 import Three from "../assets/Three.svg";
 import Four from "../assets/Four.svg";
 import Five from "../assets/Five.svg";
+import userData from "../recoil/userData";
+import { useRecoilState } from "recoil";
+import BottomSheet from "@gorhom/bottom-sheet";
+import Out from "../assets/Out.svg";
 
-const MenuItem = ({icon, color, text}) => {
+const MenuItem = ({ icon, color, text, navigation, onClick }) => {
   return (
     <TouchableOpacity
+      onPress={onClick}
       style={{
         height: 50,
         borderColor: "lightgray",
@@ -55,7 +62,16 @@ const MenuItem = ({icon, color, text}) => {
   );
 };
 
-const Profile = () => {
+const Profile = ({ navigation }) => {
+  const bottomSheetRef = useRef();
+  const handleClosePress = () => bottomSheetRef.current.close();
+  const handleExpandPress = useCallback(() => {
+    bottomSheetRef.current?.expand();
+  }, []);
+  const snapPoints = useMemo(() => ["25%", "50%"], []);
+
+  const [user_data, setUser] = useRecoilState(userData);
+
   return (
     <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
       <View style={styles.header}>
@@ -121,6 +137,7 @@ const Profile = () => {
             </Text>
           </View>
           <TouchableOpacity
+            onPress={() => navigation.navigate("profile_settings")}
             style={{
               alignItems: "center",
               justifyContent: "center",
@@ -212,17 +229,83 @@ const Profile = () => {
         text={"FRNDR Premium"}
         color={COLORS.primary}
         icon={<FontAwesome5 name="crown" size={12} color="white" />}
+        navigation={navigation}
       />
       <MenuItem
         text={"Settings"}
         color={"#54B7A6"}
+        navigation={navigation}
+        onClick={() => navigation.navigate("settings")}
         icon={<AntDesign name="setting" size={15} color="white" />}
       />
       <MenuItem
         text={"Sign Out"}
         color={"#ED4C5C"}
+        navigation={navigation}
         icon={<Feather name="log-out" size={12} color="white" />}
+        onClick={handleExpandPress}
       />
+      <BottomSheet
+        ref={bottomSheetRef}
+        index={-1}
+        enablePanDownToClose={true}
+        snapPoints={snapPoints}
+        // onChange={handleSheetChanges}
+      >
+        <View>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "flex-end",
+              paddingHorizontal: 20,
+            }}
+          >
+            <TouchableOpacity
+              onPress={() => handleClosePress()}
+              style={{
+                width: 50,
+                height: 50,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <AntDesign name="close" size={24} color="black" />
+            </TouchableOpacity>
+          </View>
+          <View
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              paddingHorizontal: 25,
+            }}
+          >
+            <Out />
+            <Text style={[Styles.HeaderText, { fontSize: 17, marginTop: 10 }]}>
+              Are you sure?
+            </Text>
+            <Text
+              style={[
+                Styles.normalText,
+                {
+                  fontSize: 17,
+                  marginTop: 10,
+                  textAlign: "center",
+                  width: "80%",
+                  lineHeight: 20,
+                  marginBottom: 20,
+                },
+              ]}
+            >
+              Do you want to sign out from the account?
+            </Text>
+            <BigButton
+              text="Yes, sure"
+              type="normal"
+              onClick={() => setUser(null)}
+            />
+          </View>
+        </View>
+      </BottomSheet>
     </ScrollView>
   );
 };

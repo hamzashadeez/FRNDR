@@ -2,7 +2,7 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { COLORS, hp } from "../theme";
 
-const BigButton = ({ type, text }) => {
+const BigButton = ({ type, text, onClick }) => {
   const borderred = { backgroundColor: "white", borderColor: COLORS.primary };
   const normal = {
     backgroundColor: COLORS.primary,
@@ -16,6 +16,7 @@ const BigButton = ({ type, text }) => {
   let textStyle = type === "normal" ? normalText : borderredText;
   return (
     <TouchableOpacity
+      onPress={onClick}
       style={{
         backgroundColor: "red",
         width: "100%",

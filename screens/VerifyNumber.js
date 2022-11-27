@@ -6,7 +6,7 @@ import { hp, Styles } from "../theme";
 import { Entypo } from "@expo/vector-icons";
 import AnimatedExample from "../components/VerificationInput";
 
-const VerifyNumber = () => {
+const VerifyNumber = ({ navigation }) => {
   return (
     <CustomScreen>
       <View>
@@ -56,7 +56,7 @@ const VerifyNumber = () => {
         >
           Enter verification code that sent to {"\n"} +1 123 456 7890 by SMS
         </Text>
-        <AnimatedExample />
+        <AnimatedExample navigation={navigation} />
       </View>
     </CustomScreen>
   );

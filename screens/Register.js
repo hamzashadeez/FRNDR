@@ -19,7 +19,7 @@ import CountryPicker, {
   FlagButton,
 } from "react-native-country-picker-modal";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-const Register = () => {
+const Register = ({ navigation }) => {
   const [withFlag, setWithFlag] = useState(true);
   const [country, setCountry] = useState({ callingCode: ["1264"] });
   return (
@@ -155,7 +155,11 @@ const Register = () => {
           </Text>
         </View>
 
-        <BigButton text="Register" type="normal" />
+        <BigButton
+          text="Register"
+          type="normal"
+          onClick={() => navigation.navigate("verify")}
+        />
 
         {/* Login */}
         <View
@@ -167,7 +171,7 @@ const Register = () => {
           }}
         >
           <Text style={styles.text}>Already have an account?</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("login")}>
             <Text style={[styles.text, { fontWeight: "bold", marginLeft: 5 }]}>
               Login
             </Text>

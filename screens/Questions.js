@@ -5,8 +5,12 @@ import Logo from "../assets/logo.svg";
 import { hp, Styles, wp } from "../theme";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import BigButton from "../components/BigButton";
+import { useRecoilState } from "recoil";
+import userData from "../recoil/userData";
 
-const Questions = () => {
+const Questions = ({ navigation }) => {
+  const [user_data, setUser] = useRecoilState(userData);
+
   return (
     <CustomScreen>
       <KeyboardAwareScrollView enableOnAndroid={true}>
@@ -48,7 +52,7 @@ const Questions = () => {
           height: 60,
         }}
       >
-        <BigButton text="Finish" type="normal" />
+        <BigButton text="Finish" type="normal" onClick={() => setUser(true)} />
       </View>
     </CustomScreen>
   );

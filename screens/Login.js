@@ -13,8 +13,9 @@ import BigButton from "../components/BigButton";
 import GoogleIcon from "../assets/google.svg";
 import FacebookIcon from "../assets/facebook.svg";
 import AppleIcon from "../assets/apple.svg";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
-const Login = () => {
+const Login = ({ navigation }) => {
   return (
     <CustomScreen>
       <KeyboardAwareScrollView enableOnAndroid={true}>
@@ -40,7 +41,7 @@ const Login = () => {
           }}
         >
           Welcome to <Text style={{ fontWeight: "bold" }}>FRNDR</Text>, enter
-          your details below to continue .
+          your details below to continue
         </Text>
         <Text
           style={{
@@ -78,7 +79,11 @@ const Login = () => {
             Forgot Password
           </Text>
         </TouchableOpacity>
-        <BigButton text="Login" type="normal" />
+        <BigButton
+          text="Login"
+          type="normal"
+          onClick={() => navigation.navigate("register")}
+        />
         {/* OR */}
         <View
           style={{
@@ -136,7 +141,7 @@ const Login = () => {
           }}
         >
           <Text style={styles.text}>Don’t have an account?</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("register")}>
             <Text style={[styles.text, { fontWeight: "bold", marginLeft: 5 }]}>
               Register
             </Text>

@@ -14,11 +14,12 @@ import Clara from "../assets/Clara.svg";
 import Fabian from "../assets/Fabian.svg";
 import George from "../assets/George.svg";
 import Lady from "../assets/lady.svg";
-import { Feather } from "@expo/vector-icons";
+import { Feather, AntDesign } from "@expo/vector-icons";
 import { COLORS, hp, wp } from "../theme";
 import UserStory from "../components/UserStory";
+import Icon from "../components/Icon";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch();
@@ -67,7 +68,7 @@ const Home = () => {
             borderRadius: hp("3%"),
             flexDirection: "row",
             marginTop: 5,
-            width: "100%",
+            // width: "100%",
             padding: hp("0.44"),
           }}
         >
@@ -109,29 +110,73 @@ const Home = () => {
                 textAlign: "center",
                 color: COLORS.primary,
                 fontWeight: "400",
+                marginBottom: 2,
               }}
             >
               Search Partners
             </Text>
           </TouchableOpacity>
         </View>
-        <View
+        <TouchableOpacity
+          onPress={() => navigation.navigate("info")}
           style={{
             paddingHorizontal: 15,
             paddingVertical: 10,
             width: "100%",
-            height: "81%",
+            height: "90%",
             alignItems: "center",
-            width: "100%",
             position: "relative",
           }}
         >
+          <View
+            style={{
+              bottom: 10,
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              backgroundColor: "black",
+              zIndex: 20,
+              opacity: 0.35,
+              borderRadius: 20,
+            }}
+          ></View>
+          <View
+            style={{
+              bottom: 0,
+              position: "absolute",
+              zIndex: 100,
+              height: 108,
+              // backgroundColor: COLORS.primary,
+              width: "100%",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-around",
+              paddingHorizontal: "7%",
+            }}
+          >
+            <Icon
+              size={51}
+              color="#FFFFFF5E"
+              icon={<AntDesign name="close" size={20} color="white" />}
+            />
+            <Icon
+              size={71}
+              color="#FFFFFF"
+              icon={<AntDesign name="heart" size={31} color="#DD88CF" />}
+            />
+            <Icon
+              size={51}
+              color="#FFFFFF5E"
+              icon={<AntDesign name="star" size={20} color="white" />}
+            />
+          </View>
           <Image
-            source={require("../assets/lady.png")}
-            // style={{ height: "100%", width: "100%" }}
+            resizeMode="cover"
+            source={require("../assets/lady22.jpg")}
+            style={{ height: "100%", width: "100%", borderRadius: 20 }}
           />
           {/* <Lady width={"100%"} height={"100%"} resizeMode="cover" /> */}
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

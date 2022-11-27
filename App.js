@@ -1,17 +1,11 @@
 import { StyleSheet, Text, View, StatusBar, SafeAreaView } from "react-native";
 import { useFonts } from "expo-font";
 import { COLORS, Styles } from "./theme";
-import Welcome from "./screens/Welcome";
-import Login from "./screens/Login";
-import Register from "./screens/Register";
-import VerifyNumber from "./screens/VerifyNumber";
-import Interest from "./screens/Interest";
-import Questions from "./screens/Questions";
-import Home from "./screens/Home";
-import Profile from "./screens/Profile";
-import Info from "./screens/Info";
-import Settings from "./screens/Settings";
 import { NavigationContainer } from "@react-navigation/native";
+import AppStack from "./stacks/AppStack";
+import { RecoilRoot } from "recoil";
+import MainStack from "./stacks/MainStack";
+import "react-native-gesture-handler";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -24,21 +18,15 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <SafeAreaView style={styles.container}>
-        <StatusBar style="auto" backgroundColor={COLORS.primary} />
-        {/* <Welcome /> */}
-        {/* <Login /> */}
-        {/* <Register /> */}
-        {/* <VerifyNumber /> */}
-        {/* <Interest /> */}
-        {/* <Questions /> */}
-        {/* <Home /> */}
-        {/* <Profile /> */}
-        {/* <Info /> */}
-        <Settings />
-      </SafeAreaView>
-    </NavigationContainer>
+    <RecoilRoot>
+      <NavigationContainer>
+        <SafeAreaView style={styles.container}>
+          <StatusBar style="auto" backgroundColor={COLORS.primary} />
+          <MainStack />
+          {/* <AppStack /> */}
+        </SafeAreaView>
+      </NavigationContainer>
+    </RecoilRoot>
   );
 }
 

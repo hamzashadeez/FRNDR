@@ -6,7 +6,7 @@ import Ellipse from "../assets/Ellipse.svg";
 import { hp, Styles, wp } from "../theme";
 import BigButton from "../components/BigButton";
 
-const Welcome = () => {
+const Welcome = ({ navigation }) => {
   return (
     <CustomScreen>
       <View
@@ -32,9 +32,17 @@ const Welcome = () => {
           maecenas sed urna
         </Text>
         {/* buttons */}
-        <BigButton type="borderred" text="Login" />
+        <BigButton
+          type="borderred"
+          text="Login"
+          onClick={() => navigation.navigate("login")}
+        />
         <View style={{ height: 10 }} />
-        <BigButton type="normal" text="Register" />
+        <BigButton
+          type="normal"
+          text="Register"
+          onClick={() => navigation.navigate("register")}
+        />
       </View>
       <View style={{ position: "absolute", left: -50, top: 40 }}>
         <Ellipse width={118} height={118} />

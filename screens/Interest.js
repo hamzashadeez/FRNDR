@@ -10,7 +10,7 @@ import Five from "../assets/Five.svg";
 import { hp, Styles, wp } from "../theme";
 import BigButton from "../components/BigButton";
 
-const Interest = () => {
+const Interest = ({ navigation }) => {
   return (
     <CustomScreen>
       <View style={{ alignItems: "center", justifyContent: "center" }}>
@@ -51,7 +51,11 @@ const Interest = () => {
         <Four width={wp("29%")} />
         <Five width={wp("25%")} />
       </View>
-      <BigButton text={"Next"} type="normal" />
+      <BigButton
+        text={"Next"}
+        type="normal"
+        onClick={() => navigation.navigate("questions")}
+      />
     </CustomScreen>
   );
 };
