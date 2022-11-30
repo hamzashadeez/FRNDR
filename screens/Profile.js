@@ -22,6 +22,29 @@ import { useRecoilState } from "recoil";
 import BottomSheet from "@gorhom/bottom-sheet";
 import Out from "../assets/Out.svg";
 
+export const IntSkills = () => {
+  return (
+    <View
+      style={{
+        display: "flex",
+        // flex: 1,
+        width: "100%",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        marginTop: 10,
+        flexShrink: 1,
+        // justifyContent: "space-between",
+      }}
+    >
+      <One style={{ marginLeft: 10 }} width={wp("24%")} />
+      <Three style={{ marginLeft: 10 }} width={wp("23%")} />
+      <Two style={{ marginLeft: 10 }} width={wp("34%")} />
+      <Four style={{ marginLeft: 10 }} width={wp("29%")} />
+      <Five style={{ marginLeft: 10 }} width={wp("25%")} />
+    </View>
+  );
+};
+
 const MenuItem = ({ icon, color, text, navigation, onClick }) => {
   return (
     <TouchableOpacity

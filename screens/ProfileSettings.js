@@ -16,6 +16,7 @@ import Six from "../assets/profiles/6.svg";
 import React from "react";
 import { hp, Styles } from "../theme";
 import BigButton from "../components/BigButton";
+import { IntSkills } from "./Profile";
 
 const ProfileSettings = () => {
   return (
@@ -67,9 +68,25 @@ const ProfileSettings = () => {
           style={styles.input}
           placeholder="Lorem ipsum dolor sit amet..."
         />
+        {/* interst */}
+        <Text
+          style={[
+            Styles.normalText,
+            { textTransform: "uppercase", marginTop: 10 },
+          ]}
+        >
+          Interest
+        </Text>
+        <IntSkills />
+
         {/* questions */}
 
-        <Text style={[Styles.HeaderText, { marginVertical: 10 }]}>
+        <Text
+          style={[
+            Styles.normalText,
+            { textTransform: "uppercase", marginVertical: 10 },
+          ]}
+        >
           Questions
         </Text>
         <Text style={[styles.text, { fontWeight: "400" }]}>1. Question 01</Text>
