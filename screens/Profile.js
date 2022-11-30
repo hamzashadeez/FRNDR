@@ -99,9 +99,6 @@ const Profile = ({ navigation }) => {
     <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
       <View style={styles.header}>
         <Text style={Styles.HeaderText}>Profile</Text>
-        <TouchableOpacity>
-          <EvilIcons name="search" size={24} color="black" />
-        </TouchableOpacity>
       </View>
       {/* end header */}
       {/* <John /> */}

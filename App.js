@@ -6,6 +6,7 @@ import AppStack from "./stacks/AppStack";
 import { RecoilRoot } from "recoil";
 import MainStack from "./stacks/MainStack";
 import "react-native-gesture-handler";
+import Home from "./screens/Home";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -22,8 +23,9 @@ export default function App() {
       <NavigationContainer>
         <SafeAreaView style={styles.container}>
           <StatusBar style="auto" backgroundColor={COLORS.primary} />
-          <MainStack />
-          {/* <AppStack /> */}
+          {/* <Home /> */}
+          {/* <MainStack /> */}
+          <AppStack />
         </SafeAreaView>
       </NavigationContainer>
     </RecoilRoot>

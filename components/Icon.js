@@ -1,8 +1,10 @@
 import { TouchableOpacity } from "react-native";
 
-const Icon = ({ size, color, icon }) => {
+const Icon = ({ size, color, icon, ...props }) => {
   return (
     <TouchableOpacity
+      {...props}
+      onPress={() => console.log("hello")}
       style={{
         width: size,
         height: size,
@@ -10,6 +12,7 @@ const Icon = ({ size, color, icon }) => {
         justifyContent: "center",
         borderRadius: size / 2,
         backgroundColor: color,
+        zIndex: 102,
       }}
     >
       {icon}

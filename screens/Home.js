@@ -14,17 +14,111 @@ import Clara from "../assets/Clara.svg";
 import Fabian from "../assets/Fabian.svg";
 import George from "../assets/George.svg";
 import Lady from "../assets/lady.svg";
-import { Feather, AntDesign } from "@expo/vector-icons";
+import { Feather, EvilIcons } from "@expo/vector-icons";
 import { COLORS, hp, wp } from "../theme";
 import UserStory from "../components/UserStory";
 import Icon from "../components/Icon";
+import Card from "../components/Card";
+import SwipeCards from "react-native-swipe-cards";
+import Cardx from "../components/Cardx";
+import { NoMoreCards } from "../components/SwipeCards";
 
 const Home = ({ navigation }) => {
+  const DEMO_CONTENT = [
+    {
+      id: "1",
+      cardTitle: "Card 1",
+      backgroundColor: "#FFC107",
+      image: require("../assets/lady22.jpg"),
+    },
+    {
+      id: "2",
+      cardTitle: "Card 2",
+      backgroundColor: "#ED2525",
+      image: require("../assets/Image/1.png"),
+    },
+    {
+      id: "3",
+      cardTitle: "Card 3",
+      backgroundColor: "#E7088E",
+      image: require("../assets/Image/3.png"),
+    },
+    {
+      id: "4",
+      cardTitle: "Card 4",
+      backgroundColor: "#00BCD4",
+      image: require("../assets/Image/4.png"),
+    },
+    {
+      id: "5",
+      cardTitle: "Card 5",
+      backgroundColor: "#FFFB14",
+      image: require("../assets/Image/5.png"),
+    },
+    {
+      id: "6",
+      cardTitle: "Card 1",
+      backgroundColor: "#FFC107",
+      image: require("../assets/Image/1.png"),
+    },
+    {
+      id: "7",
+      cardTitle: "Card 2",
+      backgroundColor: "#ED2525",
+      image: require("../assets/lady22.jpg"),
+    },
+    {
+      id: "8",
+      cardTitle: "Card 3",
+      backgroundColor: "#E7088E",
+      image: require("../assets/Image/3.png"),
+    },
+    {
+      id: "9",
+      cardTitle: "Card 4",
+      backgroundColor: "#00BCD4",
+      image: require("../assets/Image/4.png"),
+    },
+    {
+      id: "10",
+      cardTitle: "Card 5",
+      backgroundColor: "#FFFB14",
+      image: require("../assets/Image/5.png"),
+    },
+  ];
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch();
   }, []);
   const renderItem = (item) => {};
+
+  const [noMoreCard, setNoMoreCard] = useState(false);
+  const [sampleCardArray, setSampleCardArray] = useState([DEMO_CONTENT]);
+  const [swipeDirection, setSwipeDirection] = useState("--");
+  let LIST = DEMO_CONTENT;
+
+  useEffect(() => {
+    setSampleCardArray(DEMO_CONTENT);
+    console.log("Updated");
+  }, []);
+
+  // const removeCard = (id) => {
+  //   // alert(id);
+  //   sampleCardArray.splice(
+  //     sampleCardArray.findIndex((item) => item.id == id),
+  //     1
+  //   );
+  //   setSampleCardArray(sampleCardArray);
+  //   if (sampleCardArray.length == 0) {
+  //     setNoMoreCard(true);
+  //   }
+  //   console.log("length: ", sampleCardArray.length);
+  // };
+
+  // const lastSwipedDirection = (swipeDirection) => {
+  //   setSwipeDirection(swipeDirection);
+  // };
+
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
       <View
@@ -117,66 +211,31 @@ const Home = ({ navigation }) => {
             </Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("info")}
+
+        <View
           style={{
             paddingHorizontal: 15,
             paddingVertical: 10,
             width: "100%",
             height: "90%",
             alignItems: "center",
+            justifyContent: "center",
             position: "relative",
           }}
         >
-          <View
-            style={{
-              bottom: 10,
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              backgroundColor: "black",
-              zIndex: 20,
-              opacity: 0.35,
-              borderRadius: 20,
-            }}
-          ></View>
-          <View
-            style={{
-              bottom: 0,
-              position: "absolute",
-              zIndex: 100,
-              height: 108,
-              // backgroundColor: COLORS.primary,
-              width: "100%",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-around",
-              paddingHorizontal: "7%",
-            }}
-          >
-            <Icon
-              size={51}
-              color="#FFFFFF5E"
-              icon={<AntDesign name="close" size={20} color="white" />}
-            />
-            <Icon
-              size={71}
-              color="#FFFFFF"
-              icon={<AntDesign name="heart" size={31} color="#DD88CF" />}
-            />
-            <Icon
-              size={51}
-              color="#FFFFFF5E"
-              icon={<AntDesign name="star" size={20} color="white" />}
-            />
-          </View>
-          <Image
-            resizeMode="cover"
-            source={require("../assets/lady22.jpg")}
-            style={{ height: "100%", width: "100%", borderRadius: 20 }}
+          {/* cards */}
+          <SwipeCards
+            cards={DEMO_CONTENT}
+            renderCard={(cardData) => (
+              <Cardx {...cardData} navigation={navigation} />
+            )}
+            renderNoMoreCards={() => <NoMoreCards />}
+            // handleYup={this.handleYup}
+            // handleNope={this.handleNope}
+            // handleMaybe={this.handleMaybe}
+            // hasMaybeAction
           />
-          {/* <Lady width={"100%"} height={"100%"} resizeMode="cover" /> */}
-        </TouchableOpacity>
+        </View>
       </View>
     </View>
   );

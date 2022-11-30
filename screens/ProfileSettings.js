@@ -18,10 +18,11 @@ import { hp, Styles } from "../theme";
 import BigButton from "../components/BigButton";
 import { IntSkills } from "./Profile";
 
-const ProfileSettings = () => {
+const ProfileSettings = ({ navigation }) => {
   return (
     <ScrollView style={{ backgroundColor: "white", flex: 1 }}>
       <TouchableOpacity
+        onPress={() => navigation.goBack()}
         style={{
           flexDirection: "row",
           alignItems: "center",

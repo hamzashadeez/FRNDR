@@ -37,9 +37,6 @@ const Settings = ({ navigation }) => {
           <Entypo name="chevron-left" size={25} color="black" />
           <Text style={[Styles.HeaderText, { marginBottom: 3 }]}>Settings</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <EvilIcons name="search" size={24} color="black" />
-        </TouchableOpacity>
       </View>
       {/* end of header */}
       <View style={{ padding: 20 }}>

@@ -22,6 +22,8 @@ const Online = ({ pic, navigation }) => {
           borderRadius: 5,
           position: "absolute",
           right: 0,
+          zIndex: 40,
+          marginTop: 2,
         }}
       />
       <Image source={pic} style={{}} />
