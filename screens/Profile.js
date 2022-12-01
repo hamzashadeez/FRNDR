@@ -36,11 +36,21 @@ export const IntSkills = () => {
         // justifyContent: "space-between",
       }}
     >
-      <One style={{ marginLeft: 10 }} width={wp("24%")} />
-      <Three style={{ marginLeft: 10 }} width={wp("23%")} />
-      <Two style={{ marginLeft: 10 }} width={wp("34%")} />
-      <Four style={{ marginLeft: 10 }} width={wp("29%")} />
-      <Five style={{ marginLeft: 10 }} width={wp("25%")} />
+      <TouchableOpacity>
+        <One style={{ marginLeft: 10 }} width={wp("24%")} />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Three style={{ marginLeft: 10 }} width={wp("23%")} />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Two style={{ marginLeft: 10 }} width={wp("34%")} />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Four style={{ marginLeft: 10 }} width={wp("29%")} />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Five style={{ marginLeft: 10 }} width={wp("25%")} />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -203,24 +213,7 @@ const Profile = ({ navigation }) => {
           Interest
         </Text>
         {/* interest */}
-        <View
-          style={{
-            display: "flex",
-            // flex: 1,
-            width: "100%",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            marginTop: 10,
-            flexShrink: 1,
-            // justifyContent: "space-between",
-          }}
-        >
-          <One style={{ marginLeft: 10 }} width={wp("24%")} />
-          <Three style={{ marginLeft: 10 }} width={wp("23%")} />
-          <Two style={{ marginLeft: 10 }} width={wp("34%")} />
-          <Four style={{ marginLeft: 10 }} width={wp("29%")} />
-          <Five style={{ marginLeft: 10 }} width={wp("25%")} />
-        </View>
+        <IntSkills />
         {/* end interest */}
       </View>
       <View

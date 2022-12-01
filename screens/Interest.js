@@ -1,4 +1,10 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import CustomScreen from "../components/CustomScreen";
 import Logo from "../assets/logo.svg";
@@ -35,21 +41,52 @@ const Interest = ({ navigation }) => {
           justifyContent: "space-between",
         }}
       >
-        <One width={wp("24%")} />
-        <Three width={wp("23%")} />
-        <Two width={wp("34%")} />
-        <Four width={wp("29%")} />
-        <Five width={wp("25%")} />
-        <One width={wp("24%")} />
-        <Two width={wp("34%")} />
-        <Three width={wp("23%")} />
-        <Four width={wp("29%")} />
-        <Five width={wp("25%")} />
-        <One width={wp("24%")} />
-        <Two width={wp("34%")} />
-        <Three width={wp("23%")} />
-        <Four width={wp("29%")} />
-        <Five width={wp("25%")} />
+        <TouchableOpacity>
+          <One width={wp("24%")} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Three width={wp("23%")} />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Two width={wp("34%")} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Four width={wp("29%")} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Five width={wp("25%")} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <One width={wp("24%")} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Two width={wp("34%")} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Three width={wp("23%")} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Four width={wp("29%")} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Five width={wp("25%")} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <One width={wp("24%")} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Two width={wp("34%")} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Three width={wp("23%")} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Four width={wp("29%")} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Five width={wp("25%")} />
+        </TouchableOpacity>
       </View>
       <BigButton
         text={"Next"}

@@ -7,6 +7,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import BigButton from "../components/BigButton";
 import { useRecoilState } from "recoil";
 import userData from "../recoil/userData";
+import { DropDown } from "./ProfileSettings";
 
 const Questions = ({ navigation }) => {
   const [user_data, setUser] = useRecoilState(userData);
@@ -24,19 +25,21 @@ const Questions = ({ navigation }) => {
           <Text style={[styles.text, { fontWeight: "400" }]}>
             1. Question 01
           </Text>
-          <TextInput placeholder="your answer here..." style={styles.input} />
+          <DropDown />
+
           <Text
             style={[styles.text, { fontWeight: "400", marginTop: hp("3%") }]}
           >
             2. Question 02
           </Text>
-          <TextInput placeholder="your answer here..." style={styles.input} />
+          <DropDown />
+
           <Text
             style={[styles.text, { fontWeight: "400", marginTop: hp("3%") }]}
           >
             3. Question 03
           </Text>
-          <TextInput placeholder="your answer here..." style={styles.input} />
+          <DropDown />
         </View>
       </KeyboardAwareScrollView>
       <View

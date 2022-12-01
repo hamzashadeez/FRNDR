@@ -24,8 +24,8 @@ export default function App() {
         <SafeAreaView style={styles.container}>
           <StatusBar style="auto" backgroundColor={COLORS.primary} />
           {/* <Home /> */}
-          {/* <MainStack /> */}
-          <AppStack />
+          <MainStack />
+          {/* <AppStack /> */}
         </SafeAreaView>
       </NavigationContainer>
     </RecoilRoot>
