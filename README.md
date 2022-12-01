@@ -25,14 +25,14 @@ To calculate the matching percentage between user, check on their interest data 
 This is important, with swiping API users get to connect with each other
 check the UI here:
 ```bash
-./screens/Home.js line 227
+./screens/Home.js line 233
 ```
 
 Two API endpoints are needed here, one for swiping right and the other for swiping left
 
 
 # For Swiping Right
-Put the API call here: (./screens/Home.js line 227)
+Put the API call here: (./screens/Home.js line 234)
 ```bash
 # handleYup={<API Endpoint>}
 ```
