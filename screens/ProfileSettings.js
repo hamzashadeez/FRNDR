@@ -5,14 +5,9 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Image,
 } from "react-native";
-import { Entypo, AntDesign, Ionicons, FontAwesome5 } from "@expo/vector-icons";
-import One from "../assets/profiles/1.svg";
-import Two from "../assets/profiles/2.svg";
-import Three from "../assets/profiles/3.svg";
-import Four from "../assets/profiles/4.svg";
-import Five from "../assets/profiles/5.svg";
-import Six from "../assets/profiles/6.svg";
+import { Entypo } from "@expo/vector-icons";
 import Cancel from "../assets/cancel.svg";
 import React from "react";
 import { hp, Styles } from "../theme";
@@ -78,7 +73,13 @@ const ProfileSettings = ({ navigation }) => {
       </TouchableOpacity>
       <View style={{ flexDirection: "row", paddingHorizontal: 13 }}>
         <View style={{ position: "relative" }}>
-          <One />
+          {/* <One /> */}
+          <Image
+            style={{ width: 219, height: 219 }}
+            source={{
+              uri: "https://drive.google.com/uc?export=view&id=1iL9zbxqTlOBNYZ1GqB7nDTGFcZzIpu3l",
+            }}
+          />
           <TouchableOpacity style={{ position: "absolute", right: 5, top: 5 }}>
             <Cancel />
           </TouchableOpacity>
@@ -90,7 +91,12 @@ const ProfileSettings = ({ navigation }) => {
         </View>
         <View style={{ marginLeft: 10 }}>
           <View style={{ position: "relative" }}>
-            <Two />
+            <Image
+              style={{ width: 103, height: 103 }}
+              source={{
+                uri: "https://drive.google.com/uc?export=view&id=1AqMJ14FVhPLU6bV8xk0wGGSD-_DcVBhw",
+              }}
+            />
             <TouchableOpacity
               style={{ position: "absolute", right: 5, top: 5 }}
             >
@@ -104,7 +110,12 @@ const ProfileSettings = ({ navigation }) => {
           </View>
           <View style={{ height: 10 }} />
           <View style={{ position: "relative" }}>
-            <Three />
+            <Image
+              style={{ width: 103, height: 103 }}
+              source={{
+                uri: "https://drive.google.com/uc?export=view&id=1MHwkLC_fJi7Tv9V62Au-2ghM-LlHFJ9J",
+              }}
+            />
             <TouchableOpacity
               style={{ position: "absolute", right: 5, top: 5 }}
             >
@@ -127,7 +138,12 @@ const ProfileSettings = ({ navigation }) => {
         }}
       >
         <View style={{ position: "relative" }}>
-          <Four />
+          <Image
+            style={{ width: 103, height: 103 }}
+            source={{
+              uri: "https://drive.google.com/uc?export=view&id=1ELXPTpnKUx4RxsIq1kBkZC-D8o9jXRma",
+            }}
+          />
           <TouchableOpacity style={{ position: "absolute", right: 5, top: 5 }}>
             <Cancel />
           </TouchableOpacity>
@@ -138,7 +154,12 @@ const ProfileSettings = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View style={{ position: "relative" }}>
-          <Five />
+          <Image
+            style={{ width: 103, height: 103 }}
+            source={{
+              uri: "https://drive.google.com/uc?export=view&id=1P_IoFW65qnaxEIjoDR1wDGtFS011RyiD",
+            }}
+          />
           <TouchableOpacity style={{ position: "absolute", right: 5, top: 5 }}>
             <Cancel />
           </TouchableOpacity>
@@ -149,7 +170,12 @@ const ProfileSettings = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View style={{ position: "relative" }}>
-          <Six />
+          <Image
+            style={{ width: 103, height: 103 }}
+            source={{
+              uri: "https://drive.google.com/uc?export=view&id=14GSxCblVrOuCMI_1cX-997ZRg4RR8kTL",
+            }}
+          />
           <TouchableOpacity style={{ position: "absolute", right: 5, top: 5 }}>
             <Cancel />
           </TouchableOpacity>
