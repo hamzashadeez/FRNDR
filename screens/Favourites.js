@@ -11,16 +11,48 @@ import React from "react";
 import { EvilIcons } from "@expo/vector-icons";
 import { COLORS, hp, Styles, wp } from "../theme";
 
-const Prfl = ({ name, pic }) => {
+const DUMMY_CONTENT = [
+  {
+    id: 1,
+    name: "Lara Williams",
+    address: "Califonia, USA (54 km)",
+    photo:
+      "https://drive.google.com/uc?export=view&id=1UC92va_3OnG-sbF3KmdJdW9BTXWbF0np",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    address: "Califonia, USA (54 km)",
+    photo:
+      "https://drive.google.com/uc?export=view&id=1weU6H_GaG_tBeCufPKuAwkInA8YlzYpI",
+  },
+  {
+    id: 3,
+    name: "Marry Jane",
+    address: "Califonia, USA (54 km)",
+    photo:
+      "https://drive.google.com/uc?export=view&id=1DuOz_i8se_DUdERzdV6xT7j59y04v2Tp",
+  },
+  {
+    id: 4,
+    name: "Alex Boo",
+    address: "Califonia, USA (54 km)",
+    photo:
+      "https://drive.google.com/uc?export=view&id=1eClY_TeL9yTZ8iFufdu58gFEr7W8N3YM",
+  },
+];
+const Prfl = ({ name, pic, address }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+      style={{ height: hp("31.5%"), width: wp("40.2"), marginTop: 20 }}
+    >
       <ImageBackground
         resizeMode="cover"
-        source={pic}
+        source={{ uri: pic }}
         style={{
           height: hp("31.5%"),
           width: wp("40.2"),
-          marginTop: 20,
+          // marginTop: 20,
           position: "relative",
           overflow: "hidden",
           flexDirection: "column",
@@ -70,7 +102,7 @@ const Prfl = ({ name, pic }) => {
             {name}
           </Text>
           <Text style={[Styles.normalText, { fontSize: 11, color: "white" }]}>
-            Califonia, USA ( 54 km )
+            {address}
           </Text>
         </View>
       </ImageBackground>
@@ -89,17 +121,24 @@ const Favourites = () => {
       </View>
       <View style={{ flex: 1 }}>
         <ScrollView style={{ width: "100%", height: "100%" }}>
-          <View style={styles.row}>
-            <Prfl pic={require("../assets/Image/3.png")} name="Lara Williams" />
-            <Prfl pic={require("../assets/Image/6.png")} name="Jane Smith" />
-          </View>
-          <View style={styles.row}>
-            <Prfl pic={require("../assets/Image/5.png")} name="Merry Jane" />
-            <Prfl pic={require("../assets/Image/4.png")} name="Alex Boo" />
-          </View>
-          <View style={styles.row}>
-            <Prfl pic={require("../assets/Image/1.png")} name="Sara Johns" />
-            <Prfl pic={require("../assets/Image/2.png")} name="Amenda Grace" />
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              alignItems: "center",
+              justifyContent: "space-around",
+              paddingHorizontal: 10,
+            }}
+          >
+            {DUMMY_CONTENT.map((card) => (
+              <Prfl
+                key={card.id}
+                pic={card.photo}
+                name={card.name}
+                address={card.address}
+              />
+            ))}
           </View>
         </ScrollView>
       </View>
