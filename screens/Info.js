@@ -26,9 +26,10 @@ const Dot = ({ active }) => {
   );
 };
 
-const Icon = ({ size, color, icon }) => {
+const Icon = ({ size, color, icon, onClick }) => {
   return (
     <TouchableOpacity
+      onPress={onClick}
       style={{
         width: size,
         height: size,
@@ -240,16 +241,28 @@ const Info = ({ navigation }) => {
             size={51}
             color="#FFFFFF5E"
             icon={<AntDesign name="close" size={20} color="white" />}
+            onClick={() => {
+              // put your function here
+              alert("I am clickable");
+            }}
           />
           <Icon
             size={71}
             color="#FFFFFF"
             icon={<AntDesign name="heart" size={31} color="#DD88CF" />}
+            onClick={() => {
+              // put your function here
+              alert("I am clickable");
+            }}
           />
           <Icon
             size={51}
             color="#FFFFFF5E"
             icon={<AntDesign name="star" size={20} color="white" />}
+            onClick={() => {
+              // put your function here
+              alert("I am clickable");
+            }}
           />
         </View>
       </ScrollView>
