@@ -5,11 +5,12 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import CustomScreen from "../components/CustomScreen";
 import Logo from "../assets/logo.svg";
 import { COLORS, hp, wp } from "../theme";
 import BigButton from "../components/BigButton";
+import PhoneInput from "react-native-phone-number-input";
 
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
@@ -19,8 +20,11 @@ import CountryPicker, {
   FlagButton,
 } from "react-native-country-picker-modal";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
+import PasswordField from "../components/PasswordField";
+
 const Register = ({ navigation }) => {
-  const [withFlag, setWithFlag] = useState(true);
+  const phoneInput = useRef();
+  const [phone, setPhone] = useState(true);
   const [country, setCountry] = useState({ callingCode: ["1264"] });
   return (
     <CustomScreen>
@@ -68,51 +72,17 @@ const Register = ({ navigation }) => {
         >
           Mobile number
         </Text>
-        <View
-          style={[
-            styles.input,
-            { alignItems: "center", flexDirection: "row", paddingLeft: 2 },
-          ]}
-        >
-          {/*  */}
-          {/* <TouchableOpacity
-          style={{
-            height: "100%",
-            alignItems: "center",
-            flexDirection: "row",
-            width: "100%",
+
+        <PhoneInput
+          ref={phoneInput}
+          containerStyle={styles.input2}
+          defaultValue={phone}
+          defaultCode="DM"
+          layout="first"
+          onChangeText={(text) => {
+            setPhone(text);
           }}
-        >
-          <CountryPicker
-            withCallingCode
-            withFlag
-            withFlagButton={true}
-            countryCodes
-            renderFlagButton={() => <FlagButton />}
-            onSelect={(e) => setCountry(e)}
-          />
-          <FlagButton
-            withEmoji={true}
-            withCallingCodeButton={true}
-            withFlagButton={true}
-            withCurrencyButton={true}
-          />
-          <Text>+{country?.callingCode[0]}</Text>
-        </TouchableOpacity> */}
-          {/* <View
-          style={{
-            width: 1,
-            height: "60%",
-            backgroundColor: "#263238",
-            marginHorizontal: 3,
-          }}
-        /> */}
-          <TextInput
-            placeholder="Enter your mobile number"
-            style={{ height: "100%", width: "100%", paddingLeft: 13 }}
-            keyboardType="phone-pad"
-          />
-        </View>
+        />
 
         <Text
           style={{
@@ -123,7 +93,7 @@ const Register = ({ navigation }) => {
         >
           Password
         </Text>
-        <TextInput placeholder="Enter password" style={styles.input} />
+        <PasswordField placeholder="Enter password" style={styles.input} />
 
         <View
           style={{
@@ -186,7 +156,7 @@ export default Register;
 
 const styles = StyleSheet.create({
   input: {
-    height: hp("5.7%"),
+    height: 50,
     borderWidth: 1,
     borderColor: "#DBDBDB",
     paddingLeft: 15,
@@ -197,5 +167,14 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: "Hellix-Regular",
     fontSize: 13,
+  },
+  input2: {
+    height: 50,
+    width: "100%",
+    borderRadius: 8,
+    borderColor: "#00000040",
+    borderWidth: 1.5,
+    marginTop: 5,
+    paddingHorizontal: 15,
   },
 });

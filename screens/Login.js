@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import React from "react";
 import CustomScreen from "../components/CustomScreen";
+import PasswordField from "../components/PasswordField";
 import Logo from "../assets/logo.svg";
 import { hp, wp } from "../theme";
 import BigButton from "../components/BigButton";
@@ -65,7 +66,8 @@ const Login = ({ navigation }) => {
         >
           Password
         </Text>
-        <TextInput placeholder="Enter password" style={styles.input} />
+        <PasswordField placeholder="Enter password" style={styles.input} />
+        {/* <TextInput placeholder="Enter password" style={styles.input} /> */}
         <TouchableOpacity>
           <Text
             style={{
@@ -156,7 +158,7 @@ export default Login;
 
 const styles = StyleSheet.create({
   input: {
-    height: hp("5.7%"),
+    height: 50,
     borderWidth: 1,
     borderColor: "#DBDBDB",
     paddingLeft: 15,

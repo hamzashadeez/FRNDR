@@ -3,6 +3,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -10,6 +11,7 @@ import React from "react";
 
 import { EvilIcons } from "@expo/vector-icons";
 import { COLORS, Styles } from "../theme";
+import { useState } from "react";
 
 const Online = ({ pic, navigation }) => {
   return (
@@ -77,12 +79,35 @@ const ChatMessage = ({ pic, name, message, count, navigation, img }) => {
 };
 
 const Chat = ({ navigation }) => {
+  const [showSearchInputField, hideInput] = useState(false);
+
+  const searching = () => {
+    // this is where searching take place
+  };
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
       <View style={styles.header}>
-        <Text style={Styles.HeaderText}>Messages</Text>
-        <TouchableOpacity>
-          <EvilIcons name="search" size={24} color="black" />
+        {showSearchInputField && (
+          <TextInput
+            placeholder="Search..."
+            onChangeText={(text) => searching(text)}
+            onBlur={() => hideInput(false)}
+            style={{
+              backgroundColor: "whitesmoke",
+              flex: 1,
+              paddingHorizontal: 10,
+              height: 30,
+            }}
+          />
+        )}
+        {!showSearchInputField && (
+          <Text style={Styles.HeaderText}>Messages</Text>
+        )}
+        <TouchableOpacity
+          style={{ paddingLeft: 20 }}
+          onPress={() => hideInput(true)}
+        >
+          <EvilIcons name="search" size={27} color="black" />
         </TouchableOpacity>
       </View>
       <View style={{ padding: 15 }}>
